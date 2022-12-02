@@ -2,16 +2,15 @@ use std::fs::File;
 use std::io::{BufReader, BufRead};
 use std::collections::BinaryHeap;
 
+pub const INPUT: &str = "day_one.txt";
+
 /// AoC Day 1. Get the elf with the most calories!
 /// Given a file which is a list of calories, where the elves are separated by an empty line
 /// Find the elf with the most calories. How many total Calories is that elf carrying?
 /// Find the sum of the top 3 elves holding the most calories. 
 /// https://adventofcode.com/2022/day/1
-pub fn get_highest_calories() {
+pub fn get_highest_calories(br: BufReader<File>) {
     println!("Executing AoC Day One Problem");
-    let path = "day_one.txt";
-    let f = File::open(path).expect("Unable to open file");
-    let br = BufReader::new(f);
     let mut current_elf_calories: u32 = 0;
     let mut bh: BinaryHeap<u32> = BinaryHeap::with_capacity(3);
 
