@@ -16,14 +16,27 @@ pub fn get_highest_calories() {
     let mut bh: BinaryHeap<u32> = BinaryHeap::with_capacity(3);
 
     br.lines().for_each(|l| {
-        let line = l.unwrap();
-        if !line.is_empty() {
-            let line_calorie: u32 = line.parse().unwrap();
-            current_elf_calories += line_calorie;
-        } else {
-            bh.push(current_elf_calories);
-            current_elf_calories = 0;
+        // Here's another way to do it
+        if let Ok(line) = l {
+            match line.parse::<u32>() {
+                Ok(n) => {
+                    current_elf_calories += n;
+                }
+                Err (_) => {
+                    bh.push(current_elf_calories);
+                    current_elf_calories = 0;
+                }
+            }
         }
+        // Here's 1 way to do it
+        // let line = l.unwrap();
+        // if !line.is_empty() {
+        //     let line_calorie: u32 = line.parse().unwrap();
+        //     current_elf_calories += line_calorie;
+        // } else {
+        //     bh.push(current_elf_calories);
+        //     current_elf_calories = 0;
+        // }
     });
     // fence post for last elf not covered by the loop
     bh.push(current_elf_calories);
