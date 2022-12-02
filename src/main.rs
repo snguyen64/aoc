@@ -1,24 +1,25 @@
-use crate::aoc::{day_two::{self, part_two}};
-
-pub mod aoc; // tells compiler to include code found in src/aoc.rs
+mod solutions;
 
 // todo
-// 1. add command line to take inputs to run code
+// 1. Add command line to take inputs to run code
 //      take inputs such as year, day, part, or all
-// 2. add modules for year and day
-// 3. refactor
-// 4. add time measurements to read executed code
+// 2. Add time measurements to read executed code
+// 3. Update the readme
+
+use aoc2022::Solution;
 
 fn main() {
     println!("Starting ~AoC 2022~");
-    println!("Executing AoC Day One Problem");
-
-    // execute day 1 code
-    // aoc::DayChallenge::new(day_one::INPUT, get_highest_calories)
-    //     .exec();
-
-    // execute day 2 code
-    aoc::DayChallenge::new(day_two::INPUT, part_two)
-        .exec();
-    // todo
+    let year = 2022;
+    let day = 1; // todo input and sub 1
+    let solutions = solutions::get_year(year);
+    let solution = match solutions.get(day) {
+        Some(s) => s,
+        None => {
+            println!("No solution for the day and year");
+            return;
+        }
+    };
+    solution.part_a();
+    solution.part_b();
 }
