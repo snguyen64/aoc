@@ -1,7 +1,5 @@
-use aoc2022::load;
-
-use crate::Solution;
-use std::io::{BufRead};
+use crate::solution::{load, Solution};
+use std::io::BufRead;
 use std::collections::BinaryHeap;
 
 pub struct Day01;
@@ -10,6 +8,10 @@ const YEAR: u32 = 2022;
 const DAY: u32 = 1;
 
 impl Solution for Day01 {
+    fn name(&self) -> String {
+        "Elves holding loads of calories".to_string()
+    }
+
     /// Part A of Day 1 to get the top 1 elf holding the most calories
     fn part_a(&self) {
         let br = load(YEAR, DAY);

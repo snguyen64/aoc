@@ -1,5 +1,4 @@
-use aoc2022::load;
-use crate::Solution;
+use crate::solution::{load, Solution};
 use std::io::BufRead;
 pub struct Day02;
 
@@ -10,6 +9,10 @@ const DAY: u32 = 2;
 // https://www.reddit.com/r/rust/comments/zanek7/aoc_day_2/
 // see solutions for readability / performance / neat tricks and methods
 impl Solution for Day02 {
+    fn name(&self) -> String {
+        "Rock paper scissors with the elves (except we cheat 😈)".to_string()
+    }
+
     /// Given an "strat guide" with two columns,
     /// The first column will have A, B, or C (rock paper scissors)
     /// The second column will have X, Y, or Z (same as above)

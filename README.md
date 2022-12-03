@@ -7,6 +7,9 @@ cli
 ## Architecture
 TODO mermaid
 
+## Dependencies
+* [clap](https://docs.rs/clap/latest/clap/)
+
 ## Solutions
 ### 2022
 | Day | Input | Solution | 

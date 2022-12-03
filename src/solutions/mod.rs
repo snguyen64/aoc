@@ -1,4 +1,4 @@
-use crate::Solution;
+use crate::solution::Solution;
 
 mod year_2022;
 

@@ -1,25 +1,77 @@
+mod solution;
 mod solutions;
 
-// todo
-// 1. Add command line to take inputs to run code
-//      take inputs such as year, day, part, or all
-// 2. Add time measurements to read executed code
-// 3. Update the readme
-
-use aoc2022::Solution;
+use clap::{Parser, Subcommand};
 
 fn main() {
-    println!("Starting ~AoC 2022~");
-    let year = 2022;
-    let day = 1; // todo input and sub 1
-    let solutions = solutions::get_year(year);
-    let solution = match solutions.get(day) {
-        Some(s) => s,
-        None => {
-            println!("No solution for the day and year");
-            return;
-        }
+    let args = Cli::parse();
+
+    match args.command {
+        Commands::Run { all, year, day, part } => {
+            match all {
+                true => {
+                    solution::run_solutions(None, None, None)
+                },
+                false => {
+                    solution::run_solutions(year, day, part)
+                }
+            }
+        },
+        Commands::List {  } => {
+            let solutions = solutions::get_year(solution::CURRENT_YEAR);
+            println!("[*] Solutions for {}:", solution::CURRENT_YEAR);
+
+            for (i, e) in solutions.iter().enumerate() {
+                println!(
+                    " {} Day {}: {}",
+                    if i + 1 == solutions.len() {
+                        "└"
+                    } else {
+                        "├"
+                    },
+                    i + 1,
+                    e.name()
+                );
+            }
+        },
     };
-    solution.part_a();
-    solution.part_b();
+}
+
+// https://docs.rs/clap/latest/clap/
+
+/// A cli for AoC
+#[derive(Debug, Parser)]
+#[command(name = "aoc")]
+#[command(about = "Advent of Code CLI to execute solutions for the challenges", long_about = None)]
+pub struct Cli {
+    #[command(subcommand)]
+    pub command: Commands,
+}
+
+#[derive(Debug, Subcommand)]
+pub enum Commands {
+    /// List the available solutions
+    List{},
+
+    /// Run the Advent of Code challenges
+    Run{
+        // todo add run all
+        // todo add run with execution times
+
+        /// Option to run all the tests or specific ones
+        #[arg(value_name = "ALL", long)]
+        all: bool,
+
+        /// Year of advent of code
+        #[arg(value_name = "YEAR", long)]
+        year: Option<u32>,
+
+        /// Day of the challenge
+        #[arg(value_name = "DAY", long)]
+        day: Option<usize>,
+
+        /// Specific part of the challenge
+        #[arg(value_name = "PART", long)]
+        part: Option<char>,
+    },
 }
