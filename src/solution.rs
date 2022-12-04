@@ -15,12 +15,14 @@ pub trait Solution {
     fn part_b(&self);
 }
 
+/// Load the input for the advent challenge from year and day.
 pub fn load(year: u32, day: u32) -> BufReader<File> {
     let filename = format!("data/{year}/day_{:02}.txt", day);
     let f = File::open(filename).expect("Unable to open input file");
     BufReader::new(f)
 }
 
+/// Run the solutions (Runs all solutions of None values are passed in)
 pub fn run_solutions(year: Option<u32>, day: Option<usize>, part: Option<char>) {      
     let (begin, end) = match year {
         Some(y) => {
@@ -35,7 +37,7 @@ pub fn run_solutions(year: Option<u32>, day: Option<usize>, part: Option<char>) 
         let solutions = solutions::get_year(year);
         match day {
             Some(day) => {
-                let solution = match solutions.get(day) {
+                let solution = match solutions.get(day - 1) {
                     Some(s) => {
                         s
                     },

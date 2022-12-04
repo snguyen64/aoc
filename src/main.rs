@@ -7,15 +7,8 @@ fn main() {
     let args = Cli::parse();
 
     match args.command {
-        Commands::Run { all, year, day, part } => {
-            match all {
-                true => {
-                    solution::run_solutions(None, None, None)
-                },
-                false => {
-                    solution::run_solutions(year, day, part)
-                }
-            }
+        Commands::Run { year, day, part } => {
+            solution::run_solutions(year, day, part)
         },
         Commands::List {  } => {
             let solutions = solutions::get_year(solution::CURRENT_YEAR);
@@ -55,12 +48,7 @@ pub enum Commands {
 
     /// Run the Advent of Code challenges
     Run{
-        // todo add run all
         // todo add run with execution times
-
-        /// Option to run all the tests or specific ones
-        #[arg(value_name = "ALL", long)]
-        all: bool,
 
         /// Year of advent of code
         #[arg(value_name = "YEAR", long)]
