@@ -48,4 +48,6 @@ TODO mermaid
 | 01 | [day_one input](data/2022/day_01.txt) | [day_one solution](/src/solutions/year_2022/day_01.rs) |
 | 02 | [day_two input](data/2022/day_02.txt) | [day_two solution](/src/solutions/year_2022/day_02.rs) |
 | 03 | [day_three input](data/2022/day_03.txt) | [day_three solution](/src/solutions/year_2022/day_03.rs) |
+| 04 | [day_four input](data/2022/day_04.txt) | [day_four solution](/src/solutions/year_2022/day_04.rs) |
+| 05 | [day_five input](data/2022/day_05.txt) | [day_five solution](/src/solutions/year_2022/day_05.rs) |
 
