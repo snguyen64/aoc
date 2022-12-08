@@ -7,6 +7,7 @@ pub struct Day07;
 const YEAR: u32 = 2022;
 const DAY: u32 = 7;
 
+// TODO - see how other people have implemented it
 impl Solution for Day07 {
     fn name(&self) -> String {
         "No Space Left On Device".to_string()
