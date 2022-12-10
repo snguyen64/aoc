@@ -53,4 +53,11 @@ TODO mermaid
 | 06 | [day_six input](data/2022/day_06.txt) | [day_six solution](/src/solutions/year_2022/day_06.rs) |
 | 07 | [day_seven input](data/2022/day_07.txt) | [day_seven solution](/src/solutions/year_2022/day_07.rs) |
 | 08 | [day_eight input](data/2022/day_08.txt) | [day_eight solution](/src/solutions/year_2022/day_08.rs) |
+| 09 | [day_nine input](data/2022/day_08.txt) | [day_nine solution](/src/solutions/year_2022/day_09.rs) |
 
+
+## Personal Notes
+### Review or Look into
+* Closures
+* Generics
+* Traits and Attributes
