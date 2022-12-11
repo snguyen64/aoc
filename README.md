@@ -64,3 +64,4 @@ TODO mermaid
 * Generics
 * Traits and Attributes
 * Lifetimes
+* GATs
