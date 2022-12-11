@@ -10,9 +10,10 @@ mod day_07;
 mod day_08;
 mod day_09;
 mod day_10;
+mod day_11;
 
 /// This contains a map of all the solutions that we have for module 2022
-pub const ALL: [&dyn Solution; 10] = [
+pub const ALL: [&dyn Solution; 11] = [
     &day_01::Day01, 
     &day_02::Day02,
     &day_03::Day03,
@@ -23,4 +24,5 @@ pub const ALL: [&dyn Solution; 10] = [
     &day_08::Day08,
     &day_09::Day09,
     &day_10::Day10,
+    &day_11::Day11,
 ];
